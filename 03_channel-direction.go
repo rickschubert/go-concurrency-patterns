@@ -10,7 +10,7 @@ func putOntoChannel(channel chan<- int) {
 
 func readFromChannel(channel <-chan int) {
 	for {
-		number := <- channel
+		number := <-channel
 		fmt.Println(number)
 	}
 }

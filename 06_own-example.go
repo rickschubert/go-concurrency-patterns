@@ -6,8 +6,8 @@ import (
 )
 
 type person struct {
-	name string
-	age int
+	name    string
+	age     int
 	address string
 	hobbies []string
 }
@@ -51,7 +51,7 @@ func getHobbiesNetworkRequest() []string {
 func main() {
 	start := time.Now()
 
-	fmt.Println("Let's pretend I need to make 4 API calls to retrieve information about a person Each request takes a while.\n")
+	fmt.Println("Let's pretend I need to make 4 different API calls to retrieve information about a person. Each request takes a while.\n")
 	var p person
 	addressChannel := make(chan string)
 	ageChannel := make(chan int)

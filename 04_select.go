@@ -1,8 +1,8 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 func sendToChannelEveryTwoSeconds(channel chan string) {
@@ -22,14 +22,14 @@ func sendToChannelEveryThreeSeconds(channel chan string) {
 func printValuesFromChannels(channelOne chan string, channelTwo chan string) {
 	for {
 		select {
-		case msg1 := <- channelOne:
+		case msg1 := <-channelOne:
 			fmt.Println(msg1)
-		case msg2 := <- channelTwo:
+		case msg2 := <-channelTwo:
 			fmt.Println(msg2)
-		case <- time.After(time.Second):
+		case <-time.After(time.Second):
 			fmt.Println("Waited 1 second. Nothing received on any of the channels.")
-		// default:
-		// 	fmt.Println("Nothing ready")
+			// default:
+			// 	fmt.Println("Nothing ready")
 		}
 	}
 }
@@ -48,4 +48,4 @@ func main() {
 	go printValuesFromChannels(channelOne, channelTwo)
 
 	keepProgrammingRunningUntilUserInput()
-  }
+}

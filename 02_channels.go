@@ -1,8 +1,8 @@
 package main
 
 import (
-  "fmt"
-  "time"
+	"fmt"
+	"time"
 )
 
 func pingOntoChannel(c chan string) {
@@ -21,7 +21,7 @@ func pongOntoChannel(c chan string) {
 
 func printValuesFromChannel(c chan string) {
 	for {
-		msg := <- c
+		msg := <-c
 		fmt.Println(msg)
 	}
 }

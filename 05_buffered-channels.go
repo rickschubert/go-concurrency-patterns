@@ -24,10 +24,9 @@ func main() {
 	channel <- 42
 	channel <- 13
 	// channel <- 87
-	fmt.Println(<- channel)
-	fmt.Println(<- channel)
-	fmt.Println(<- channel)
-
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
 
 	// go func() {
 	// 	for {
