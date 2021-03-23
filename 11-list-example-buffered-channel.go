@@ -14,6 +14,7 @@ func processItem(item int, wg *sync.WaitGroup, channel chan string) {
 
 func printProcessedItem(item string, wg *sync.WaitGroup) {
 	defer wg.Done()
+	time.Sleep(1000)
 	fmt.Println("The item coming back from channel ---", item)
 }
 
@@ -30,9 +31,9 @@ func main() {
 	close(channel)
 
 	var wgTwo sync.WaitGroup
-	for stringifiedItem := range channel {
+	for i := 1; i <= len(items); i++ {
 		wgTwo.Add(1)
-		go printProcessedItem(stringifiedItem, &wgTwo)
+		go printProcessedItem(<-channel, &wgTwo)
 	}
 	wgTwo.Wait()
 }
